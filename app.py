@@ -1,5 +1,6 @@
 import streamlit as st
-import tensorflow as tf
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
+import keras
 import numpy as np
 from PIL import Image
 import os
@@ -12,7 +13,7 @@ st.set_page_config(
 
 @st.cache_resource
 def load_model():
-    model = tf.keras.models.load_model("model/crop_disease_model.h5")
+    model = keras.models.load_model("model/crop_disease_model.h5")
     with open("model/class_names.txt", "r") as f:
         class_names = [line.strip() for line in f.readlines()]
     return model, class_names
