@@ -1,11 +1,8 @@
-import streamlit as st
-os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 import os
-os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
-import keras
+import streamlit as st
 import numpy as np
 from PIL import Image
-import os
+import keras
 
 st.set_page_config(
     page_title="Crop Disease Detection",
