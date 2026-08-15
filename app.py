@@ -12,7 +12,10 @@ st.set_page_config(
 
 @st.cache_resource
 def load_model():
-    model =tf.keras.models.load_model("model/crop_disease_model.h5")
+    model = tf.keras.models.load_model(
+        "model/crop_disease_model.h5",
+        compile=False
+    )
     with open("model/class_names.txt", "r") as f:
         class_names = [line.strip() for line in f.readlines()]
     return model, class_names
