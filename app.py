@@ -13,7 +13,7 @@ st.set_page_config(
 @st.cache_resource
 def load_model():
     model = tf.keras.models.load_model(
-        "model/crop_disease_model.h5",
+        "model/crop_disease_model.keras",
         compile=False
     )
     with open("model/class_names.txt", "r") as f:
