@@ -2,7 +2,7 @@ import os
 import streamlit as st
 import numpy as np
 from PIL import Image
-import keras
+import tensorflow as tf
 
 st.set_page_config(
     page_title="Crop Disease Detection",
@@ -12,7 +12,7 @@ st.set_page_config(
 
 @st.cache_resource
 def load_model():
-    model = keras.models.load_model("model/crop_disease_model.h5")
+    model =tf.keras.models.load_model("model/crop_disease_model.h5")
     with open("model/class_names.txt", "r") as f:
         class_names = [line.strip() for line in f.readlines()]
     return model, class_names
@@ -324,7 +324,7 @@ with col1:
 
     if uploaded_file:
         image = Image.open(uploaded_file)
-        st.image(image, caption="📷 Uploaded Leaf Image", use_container_width=True)
+        st.image(image, caption="📷 Uploaded Leaf Image", width=600)
         st.markdown(f"""
         <div style='background:#102E27; border:1px solid #1F4D40; border-radius:8px;
                     padding:10px 14px; margin-top:10px; display:flex; align-items:center; gap:8px;'>
